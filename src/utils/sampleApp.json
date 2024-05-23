@@ -1,0 +1,41 @@
+[
+  {
+    "type": "Input",
+    "properties": {
+      "id": "x"
+    }
+  },
+  {
+    "type": "Input",
+    "properties": {
+      "id": "y"
+    }
+  },
+  {
+    "type": "Output",
+    "properties": {
+      "function": "2 * x"
+    }
+  },
+  {
+    "type": "Output",
+    "properties": {
+      "function": "10 * y"
+    }
+  },
+  {
+    "type": "Output",
+    "properties": {
+      "function": "parseInt(x) + parseInt(y)"
+    }
+  },
+  {
+    "type": "Oracle",
+    "properties": {
+      "prompt": "Hello {{x}}"
+    }
+  },
+  {
+    "type": "Table"
+  }
+]
