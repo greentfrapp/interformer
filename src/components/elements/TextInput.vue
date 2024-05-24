@@ -1,5 +1,5 @@
 <template>
-  <input type="text" v-model="innerValue" spellcheck="false" class="border-2 rounded px-3 py-2" />
+  <input type="text" v-model="innerValue" spellcheck="false" class="border-2 rounded px-3 py-1.5" />
 </template>
 <script setup lang="ts">
 import { computed } from 'vue'

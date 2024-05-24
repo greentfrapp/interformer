@@ -1,7 +1,7 @@
 <template>
   <Listbox as="div" v-model="innerValue">
     <div class="relative">
-      <ListboxButton class="border-2 relative w-full cursor-pointer rounded bg-white py-2 pl-3 pr-10 text-left focus:outline-none">
+      <ListboxButton class="border-2 relative w-full cursor-pointer rounded bg-white py-1.5 pl-3 pr-10 text-left focus:outline-none">
         <span class="flex items-center">
           {{ innerValue }}
         </span>
@@ -12,7 +12,7 @@
       <transition leave-active-class="transition ease-in duration-100" leave-from-class="opacity-100" leave-to-class="opacity-0">
         <ListboxOptions class="absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white py-1 focus:outline-none border shadow">
           <ListboxOption as="template" v-for="o in props.options" :key="o" :value="o" v-slot="{ active, selected }">
-            <li :class="[active ? 'bg-neutral-200' : '', 'relative cursor-pointer select-none py-2 pl-3 pr-9']">
+            <li :class="[active ? 'bg-neutral-200' : '', 'relative cursor-pointer select-none py-1.5 pl-3 pr-9']">
               <div class="flex items-center">
                 <span :class="[selected ? 'font-medium' : 'font-normal', 'ml-3 block truncate']">{{ o }}</span>
               </div>

@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-neutral-100 h-screen transition-all overflow-auto flex flex-col justify-between items-end gap-10 border-r"
-    :class="[appStore.editAppIndex >= 0 ? 'p-4 w-96 shrink-0' : 'w-0 p-0']">
+  <div class="bg-neutral-100 h-screen transition-all overflow-auto flex flex-col justify-between items-end gap-10"
+    :class="[appStore.editAppIndex >= 0 ? 'p-4 w-96 shrink-0 border-r' : 'w-0 p-0']">
     <div class="space-y-4 w-full">
       <div class="flex justify-between items-start">
         <h2 class="font-medium text-xl">{{ app.title }}</h2>
@@ -15,9 +15,12 @@
         </div>
       </div>
       <div>
-        <TextInputLabel>Components</TextInputLabel>
+        <div class="flex justify-between">
+          <TextInputLabel>Components</TextInputLabel>
+          <button @click="toggleAll" class="text-xs text-neutral-400">Show/Hide All</button>
+        </div>
         <div class="flex flex-col gap-1">
-          <component v-for="c in app.app" :is="COMPONENT_INFO_CARDS[c.type]"
+          <component ref="components" v-for="c in app.app" :is="COMPONENT_INFO_CARDS[c.type]"
             :comp="c" />
         </div>
       </div>
@@ -28,9 +31,9 @@
   </div>
 </template>
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { ChevronDoubleLeftIcon, TrashIcon } from '@heroicons/vue/16/solid'
-import TextInputLabel from '../elements/TextInputLabel.vue'
+import TextInputLabel from '@/components/elements/TextInputLabel.vue'
 import { useAppStore } from '@/utils/appStore'
 import { COMPONENT_INFO_CARDS } from '@/utils/components'
 
@@ -39,4 +42,10 @@ const appStore = useAppStore()
 const app = computed(() => {
   return appStore.apps[appStore.editAppIndex] || { title: '', app: [] }
 })
+
+const components = ref([] as Array<any>)
+function toggleAll() {
+  const globalState = components.value.every(c => !c.collapse)
+  components.value.forEach(c => c.collapse = globalState)
+}
 </script>

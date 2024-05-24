@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-neutral-100 h-screen transition-all overflow-auto flex flex-col justify-between items-end gap-10 border-r"
-    :class="[props.open ? 'p-4 w-64 shrink-0' : 'w-0 p-0']">
+  <div class="bg-neutral-100 h-screen transition-all overflow-auto flex flex-col justify-between items-end gap-10"
+    :class="[props.open ? 'p-4 w-64 shrink-0 border-r' : 'w-0 p-0']">
     <div class="space-y-4 w-full">
       <div class="flex justify-between items-start">
         <h2 class="font-medium text-xl">Settings</h2>

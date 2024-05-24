@@ -36,6 +36,7 @@
     "type": "Output",
     "properties": {
       "label": "Double x",
+      "id": "_2x",
       "function": "2 * x"
     }
   },
@@ -43,6 +44,7 @@
     "type": "Output",
     "properties": {
       "label": "10 times y",
+      "id": "_10y",
       "function": "10 * y"
     }
   },
@@ -50,6 +52,7 @@
     "type": "Output",
     "properties": {
       "label": "x + y",
+      "id": "_sum",
       "function": "parseInt(x) + parseInt(y)"
     }
   },
