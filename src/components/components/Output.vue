@@ -1,30 +1,42 @@
 <template>
-  <div>
-    Output
-    {{ result }}
+  <div class="flex flex-col">
+    <TextInputLabel>{{ props.label || 'Output ' + props.id }}</TextInputLabel>
+    <TextOutput :class="result === 'Invalid function' ? 'text-neutral-300' : ''">
+      {{ result }}
+    </TextOutput>
   </div>
 </template>
 <script setup lang="ts">
-import { useAppStore } from '@/utils/appStore'
-import { computed } from 'vue'
+import { computed, PropType } from 'vue'
+import TextInputLabel from '../elements/TextInputLabel.vue'
+import TextOutput from '../elements/TextOutput.vue'
 
 const props = defineProps({
+  label: {
+    type: String,
+  },
   id: {
     type: String,
     required: true,
-  }
+  },
+  state: {
+    type: Object as PropType<any>,
+    required: true,
+  },
 })
 
-const appStore = useAppStore()
-
 const result = computed(() => {
-  let remappedFunction = props.id
-  Object.keys(appStore.state).forEach(v => {
-    remappedFunction = remappedFunction.replaceAll(
-      v,
-      `appStore.state.${v}`
-    )
-  })
-  return Function('appStore', 'return ' + remappedFunction)(appStore)
+  try {
+    let remappedFunction = props.id
+    Object.keys(props.state).forEach(v => {
+      remappedFunction = remappedFunction.replaceAll(
+        v,
+        `state.${v}`
+      )
+    })
+    return Function('state', 'return ' + remappedFunction)(props.state)
+  } catch {
+    return 'Invalid function'
+  }
 })
 </script>

@@ -1,18 +1,29 @@
 <template>
-  <div>
-    Input {{ id }}
-    <input class="border" v-model="appStore.state[props.id]" />
+  <div class="flex flex-col">
+    <TextInputLabel>{{ props.label || 'Input ' + props.id }}</TextInputLabel>
+    <TextInput v-model="props.state[props.id]" :placeholder="props.placeholder" />
   </div>
 </template>
 <script setup lang="ts">
-import { useAppStore } from '@/utils/appStore'
+import { PropType } from 'vue'
+import TextInputLabel from '../elements/TextInputLabel.vue'
+import TextInput from '../elements/TextInput.vue'
 
 const props = defineProps({
+  label: {
+    type: String,
+  },
   id: {
     type: String,
     required: true,
-  }
+  },
+  state: {
+    type: Object as PropType<any>,
+    required: true,
+  },
+  placeholder: {
+    type: String,
+    default: '',
+  },
 })
-
-const appStore = useAppStore()
 </script>
