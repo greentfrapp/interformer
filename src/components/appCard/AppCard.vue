@@ -10,6 +10,7 @@
         :label="c.properties.label"
         :id="c.properties ? c.properties.id || c.properties.function || c.properties.prompt : null"
         :prompt="c.properties ? c.properties.prompt : null"
+        :function="c.properties.function"
         :options="c.properties.options"
         :state="props.state"
         :placeholder="c.properties.placeholder" />

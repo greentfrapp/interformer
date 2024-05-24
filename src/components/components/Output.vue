@@ -19,6 +19,10 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  function: {
+    type: String,
+    required: true,
+  },
   state: {
     type: Object as PropType<any>,
     required: true,
@@ -27,7 +31,7 @@ const props = defineProps({
 
 const result = computed(() => {
   try {
-    let remappedFunction = props.id
+    let remappedFunction = props.function
     Object.keys(props.state).forEach(v => {
       remappedFunction = remappedFunction.replaceAll(
         v,
