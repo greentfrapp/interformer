@@ -1,8 +1,8 @@
 <template>
-  <div class="w-full bg-white rounded flex flex-col gap-1 overflow-hidden border border-purple-200">
+  <div class="w-full bg-white rounded flex flex-col gap-1 overflow-hidden border border-purple-800/20">
     <button @click="collapse = !collapse"
-      class="flex text-xs uppercase bg-purple-200 text-purple-600 px-1 justify-between">
-      <span>{{ props.comp.type }}</span>
+      class="flex text-xs bg-purple-800/20 text-purple-800 px-1 justify-between">
+      <span class="uppercase">{{ props.comp.type }}</span>
       <span>{{ props.comp.properties.id }}</span>
     </button>
     <div v-if="!collapse" class="p-2 space-y-1.5">
