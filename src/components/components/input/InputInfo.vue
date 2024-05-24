@@ -1,7 +1,7 @@
 <template>
-  <div class="w-full bg-white rounded p-2 flex flex-col gap-1">
-    <h3 class="text-sm">{{ props.comp.type }}</h3>
-    <div v-for="prop in compProps" class="flex flex-col">
+  <div class="w-full bg-white rounded flex flex-col gap-1 overflow-hidden border border-amber-200">
+    <h3 class="text-xs uppercase bg-amber-200 text-amber-600 px-1">{{ props.comp.type }}</h3>
+    <div v-for="prop in compProps" class="flex flex-col p-2">
       <TextInputLabel>{{ prop }}</TextInputLabel>
       <TextInput v-model="props.comp.properties[prop]" />
     </div>

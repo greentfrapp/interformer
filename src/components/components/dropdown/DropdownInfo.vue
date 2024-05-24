@@ -1,7 +1,7 @@
 <template>
-  <div class="w-full bg-white rounded p-2 flex flex-col gap-1">
-    <h3 class="text-sm">{{ props.comp.type }}</h3>
-    <div v-for="prop in compProps" class="flex flex-col">
+  <div class="w-full bg-white rounded flex flex-col gap-1 overflow-hidden border border-blue-200">
+    <h3 class="text-xs uppercase bg-blue-200 text-blue-600 px-1">{{ props.comp.type }}</h3>
+    <div v-for="prop in compProps" class="flex flex-col p-2">
       <TextInputLabel>{{ prop }}</TextInputLabel>
       <div v-if="prop === 'options'" class="space-y-0.5">
         <div v-for="o in props.comp.properties[prop]" class="text-sm border-2 px-2 py-1 flex rounded gap-2 w-full overflow-auto">
