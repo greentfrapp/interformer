@@ -4,7 +4,7 @@ import MAIN_PROMPT from './mainPrompt'
 // import { generateAPI } from './api'
 import { generateAPI } from './openai'
 import { ComponentType } from './components'
-import { RemovableRef, useStorage } from '@vueuse/core'
+import { useStorage } from '@vueuse/core'
 
 function getRandomAlphanumericId(numChars: number = 5) {
   const chars = '0123456789abcdefghijklmnopqrstuvwxyz'

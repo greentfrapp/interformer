@@ -7,13 +7,8 @@
         <EllipsisHorizontalIcon class="w-4 h-4 text-neutral-300" />
       </button>
       <component v-for="c in app.app" :is="COMPONENTS[c.type]"
-        :label="c.properties.label"
-        :id="c.properties ? c.properties.id || c.properties.function || c.properties.prompt : null"
-        :prompt="c.properties ? c.properties.prompt : null"
-        :function="c.properties.function"
-        :options="c.properties.options"
         :state="props.state"
-        :placeholder="c.properties.placeholder" />
+        :properties="c.properties" />
     </div>
   </div>
 </template>
@@ -21,7 +16,7 @@
 import { computed, PropType } from 'vue'
 import { COMPONENTS } from '@/utils/components'
 import { EllipsisHorizontalIcon } from '@heroicons/vue/16/solid'
-import { useAppStore } from '@/utils/appStore';
+import { useAppStore } from '@/utils/appStore'
 
 const props = defineProps({
   appIndex: {

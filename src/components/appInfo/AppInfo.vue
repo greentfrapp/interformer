@@ -17,7 +17,8 @@
       <div>
         <TextInputLabel>Components</TextInputLabel>
         <div class="flex flex-col gap-1">
-          <ComponentCard v-for="comp in app.app" :comp="comp" />
+          <component v-for="c in app.app" :is="COMPONENT_INFO_CARDS[c.type]"
+            :comp="c" />
         </div>
       </div>
     </div>
@@ -30,8 +31,8 @@
 import { computed } from 'vue'
 import { ChevronDoubleLeftIcon, TrashIcon } from '@heroicons/vue/16/solid'
 import TextInputLabel from '../elements/TextInputLabel.vue'
-import ComponentCard from './ComponentCard.vue'
 import { useAppStore } from '@/utils/appStore'
+import { COMPONENT_INFO_CARDS } from '@/utils/components'
 
 const appStore = useAppStore()
 

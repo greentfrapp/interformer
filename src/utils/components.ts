@@ -1,8 +1,7 @@
-import Dropdown from '@/components/components/Dropdown.vue'
-import Input from '@/components/components/Input.vue'
-import Oracle from '@/components/components/Oracle.vue'
-import Output from '@/components/components/Output.vue'
-// import Table from '@/components/components/Table.vue'
+import { Dropdown, DropdownInfo, DropdownType } from '@/components/components/dropdown'
+import { Input, InputInfo, InputType } from '@/components/components/input'
+import { Oracle, OracleInfo, OracleType } from '@/components/components/oracle'
+import { Output, OutputInfo, OutputType } from '@/components/components/output'
 import { Component } from 'vue'
 
 export const COMPONENTS = {
@@ -10,45 +9,14 @@ export const COMPONENTS = {
   "Input": Input,
   "Oracle": Oracle,
   "Output": Output,
-  // "Table": Table,
 } as {[k: string]: Component}
 
-type DropdownType = {
-  type: 'Dropdown'
-  properties: {
-    label: string
-    id: string
-    options: any[]
-  }
-}
-
-type InputType = {
-  type: 'Input'
-  properties: {
-    label: string
-    id: string
-    placeholder: string
-  }
-}
-
-type OracleType =  {
-  type: 'Oracle'
-  properties: {
-    label: string
-    id: string
-    prompt: string
-    placeholder: string
-  }
-}
-
-type OutputType = {
-  type: 'Output'
-  properties: {
-    label: string
-    id: string
-    function: string
-  }
-}
+export const COMPONENT_INFO_CARDS = {
+  "Dropdown": DropdownInfo,
+  "Input": InputInfo,
+  "Oracle": OracleInfo,
+  "Output": OutputInfo,
+} as {[k: string]: Component}
 
 export type ComponentType =
   | DropdownType
