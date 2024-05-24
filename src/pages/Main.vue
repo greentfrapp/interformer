@@ -2,7 +2,7 @@
   <div class="flex relative w-screen h-screen overflow-hidden">
     <AppInfo />
     <Settings :open="openSettings" @close="openSettings = false" />
-    <button @click="openSettings = true" class="absolute top-2 right-2">
+    <button @click="openSettings = !openSettings" class="absolute top-2 right-2">
       <EllipsisHorizontalIcon class="w-4 h-4 text-neutral-500" />
     </button>
     <div class="flex flex-col w-full h-screen overflow-auto p-4 gap-4">
