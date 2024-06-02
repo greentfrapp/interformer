@@ -30,6 +30,11 @@ Tabular: This is a table component that allows the user to create and list tabul
     columns: An array describing the columns of the label
       label: Label of the column
       id: Unique id used to reference the column
+Button: This is a button component that allows the user to run actions
+  properties:
+    label: A label for this component visible to the user
+    id: Unique id used to reference the action
+    function: Javascript code that utilizes input ids
 
 Here is a sample app description and the JSON describing the resulting app
 
@@ -285,13 +290,13 @@ This app will use a Dropdown component to allow the user to select either coin o
 ]
 </json>
 
-Here is an example that uses the Tabular component.
+Here is an example that uses the Tabular and Button components.
 
 <description>
 A Todo app
 </description>
 <thoughts>
-This app will use a Tabular component to allow the user to add a list of tasks.
+This app will use a Tabular component to allow the user to add a list of tasks. An Input and a Button component will be used to allow the user to easily add a new task.
 </thoughts>
 <title>ToDo</title>
 <json>
@@ -308,6 +313,22 @@ This app will use a Tabular component to allow the user to add a list of tasks.
         "label": "Status",
         "id": "_status"
       }]
+    }
+  },
+  {
+    "type": "Input",
+    "properties": {
+      "label": "Task",
+      "id": "_new_task",
+      "placeholder": "Make the bed"
+    }
+  },
+  {
+    "type": "Action",
+    "properties": {
+      "label": "Add Task",
+      "id": "_add_task",
+      "function": "_tasks.push({'_description': _new_task, '_status': 'Not started'})"
     }
   }
 ]

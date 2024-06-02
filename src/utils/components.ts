@@ -1,3 +1,4 @@
+import { Action, ActionInfo, ActionType } from '@/components/components/action'
 import { Dropdown, DropdownInfo, DropdownType } from '@/components/components/dropdown'
 import { Input, InputInfo, InputType } from '@/components/components/input'
 import { Oracle, OracleInfo, OracleType } from '@/components/components/oracle'
@@ -6,6 +7,7 @@ import { Tabular, TabularInfo, TabularType } from '@/components/components/tabul
 import { Component } from 'vue'
 
 export const COMPONENTS = {
+  "Action": Action,
   "Dropdown": Dropdown,
   "Input": Input,
   "Oracle": Oracle,
@@ -14,6 +16,7 @@ export const COMPONENTS = {
 } as {[k: string]: Component}
 
 export const COMPONENT_INFO_CARDS = {
+  "Action": ActionInfo,
   "Dropdown": DropdownInfo,
   "Input": InputInfo,
   "Oracle": OracleInfo,
@@ -22,6 +25,7 @@ export const COMPONENT_INFO_CARDS = {
 } as {[k: string]: Component}
 
 export type ComponentType =
+  | ActionType
   | DropdownType
   | InputType
   | OracleType

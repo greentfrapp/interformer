@@ -69,7 +69,7 @@
     "type": "Tabular",
     "properties": {
       "label": "Table",
-      "id": "table",
+      "id": "_table",
       "columns": [
         {
           "label": "Name",
@@ -80,6 +80,14 @@
           "id": "count"
         }
       ]
+    }
+  },
+  {
+    "type": "Action",
+    "properties": {
+      "label": "New Row",
+      "id": "new_row",
+      "function": "_table.push({'name': 'Row', 'count': x})"
     }
   }
 ]
