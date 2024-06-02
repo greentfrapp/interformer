@@ -22,8 +22,8 @@
             <XCircleIcon class="w-4 h-4" />
           </td>
         </tr>
-        <tr>
-          <td :colspan="props.properties.columns.length"
+        <tr class="opacity-0 hover:opacity-100 transition-opacity">
+          <td :colspan="props.properties.columns.length + 1"
             class="text-neutral-400 hover:bg-neutral-100 cursor-pointer px-2 rounded"
             @click="addRow">
             + New
