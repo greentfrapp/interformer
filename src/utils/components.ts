@@ -2,6 +2,7 @@ import { Dropdown, DropdownInfo, DropdownType } from '@/components/components/dr
 import { Input, InputInfo, InputType } from '@/components/components/input'
 import { Oracle, OracleInfo, OracleType } from '@/components/components/oracle'
 import { Output, OutputInfo, OutputType } from '@/components/components/output'
+import { Tabular, TabularInfo, TabularType } from '@/components/components/tabular'
 import { Component } from 'vue'
 
 export const COMPONENTS = {
@@ -9,6 +10,7 @@ export const COMPONENTS = {
   "Input": Input,
   "Oracle": Oracle,
   "Output": Output,
+  "Tabular": Tabular,
 } as {[k: string]: Component}
 
 export const COMPONENT_INFO_CARDS = {
@@ -16,6 +18,7 @@ export const COMPONENT_INFO_CARDS = {
   "Input": InputInfo,
   "Oracle": OracleInfo,
   "Output": OutputInfo,
+  "Tabular": TabularInfo,
 } as {[k: string]: Component}
 
 export type ComponentType =
@@ -23,3 +26,4 @@ export type ComponentType =
   | InputType
   | OracleType
   | OutputType 
+  | TabularType

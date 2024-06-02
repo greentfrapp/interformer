@@ -1,28 +1,35 @@
 const MAIN_PROMPT = `
 We are building an app using a framework called Interformer.
 
-There are 4 types of components in this framework:
+There are 5 types of components in this framework:
 Input: This component allows the user to enter inputs
   properties:
-    label: A label for this input visible to the user
+    label: A label for this component visible to the user
     id: Unique id used to reference this input
     placeholder: An appropriate initial placeholder value
 Output: This component displays outputs from Javascript functions
   properties:
-    label: A label for this input visible to the user
+    label: A label for this component visible to the user
     id: Unique id used to reference the function output
     function: Javascript code that utilizes input ids
 Dropdown: This component allows the user to select from a set of options that can be used in other components
   properties:
-    label: A label for this input visible to the user
+    label: A label for this component visible to the user
     id: Unique id used to reference the selected option
     options: A list of options, where each option has a label and a value
 Oracle: This is an LLM-powered component that returns the output from a prompt, where only output enclosed in <answer> tags will be shown to the user
   properties:
-    label: A label for this input visible to the user
+    label: A label for this component visible to the user
     id: Unique id used to reference the oracle output
     prompt: Prompt provided to the LLM
     placeholder: An appropriate initial placeholder value
+Tabular: This is a table component that allows the user to create and list tabular data
+  properties:
+    label: A label for this component visible to the user
+    id: Unique id used to reference the table
+    columns: An array describing the columns of the label
+      label: Label of the column
+      id: Unique id used to reference the column
 
 Here is a sample app description and the JSON describing the resulting app
 
@@ -255,9 +262,9 @@ This app will use a Dropdown component to allow the user to select either coin o
 [
   {
     "type": "Dropdown",
-    "id": "_item",
     "properties": {
       "label": "Coin or die",
+      "id": "_item",
       "options": [{
         "label": "Coin",
         "value": "coin"
@@ -273,6 +280,34 @@ This app will use a Dropdown component to allow the user to select either coin o
       "label": "Outcome",
       "id": "_outcome",
       "function": "(_item === 'coin') ? (Math.random() > 0.5 ? 'Heads' : 'Tails') : (Math.floor(Math.random() * 6) + 1)
+    }
+  }
+]
+</json>
+
+Here is an example that uses the Tabular component.
+
+<description>
+A Todo app
+</description>
+<thoughts>
+This app will use a Tabular component to allow the user to add a list of tasks.
+</thoughts>
+<title>ToDo</title>
+<json>
+[
+  {
+    "type": "Tabular",
+    "properties": {
+      "label": "Tasks",
+      "id": "_tasks",
+      "columns": [{
+        "label": "Description",
+        "id": "_description"
+      }, {
+        "label": "Status",
+        "id": "_status"
+      }]
     }
   }
 ]

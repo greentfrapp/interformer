@@ -45,7 +45,7 @@ export const useAppStore = defineStore(
       initAppState(app: ComponentType[]) {
         return Object.fromEntries(
           app.filter(
-            c => ['Input', 'Dropdown', 'Oracle'].includes(c.type)
+            c => ['Input', 'Dropdown', 'Oracle', 'Tabular'].includes(c.type)
           ).map(c => {
             if (c.type === 'Input') {
               return [c.properties.id, c.properties.placeholder]
@@ -53,6 +53,12 @@ export const useAppStore = defineStore(
               return [c.properties.id, c.properties.options[0].value]
             } else if (c.type === 'Oracle') {
               return [c.properties.id, c.properties.placeholder]
+            } else if (c.type === 'Tabular') {
+              return [c.properties.id, [
+                Object.fromEntries(
+                  c.properties.columns.map(c => [c.id, ''])
+                )
+              ]]
             } else {
               throw 'Invalid component'
             }
