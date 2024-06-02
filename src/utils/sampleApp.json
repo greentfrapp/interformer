@@ -16,23 +16,6 @@
     }
   },
   {
-    "type": "Dropdown",
-    "properties": {
-      "label": "Options",
-      "id": "options",
-      "options": [
-        {
-          "label": "A",
-          "value": "A"
-        },
-        {
-          "label": "B",
-          "value": "B"
-        }
-      ]
-    }
-  },
-  {
     "type": "Output",
     "properties": {
       "label": "Double x",
@@ -54,40 +37,6 @@
       "label": "x + y",
       "id": "_sum",
       "function": "parseInt(x) + parseInt(y)"
-    }
-  },
-  {
-    "type": "Oracle",
-    "properties": {
-      "label": "Hello",
-      "id": "hello",
-      "prompt": "Hello",
-      "placeholder": "Hello! It's nice to meet you. Is there something I can help you with, or would you like to chat?"
-    }
-  },
-  {
-    "type": "Tabular",
-    "properties": {
-      "label": "Table",
-      "id": "_table",
-      "columns": [
-        {
-          "label": "Name",
-          "id": "name"
-        },
-        {
-          "label": "Count",
-          "id": "count"
-        }
-      ]
-    }
-  },
-  {
-    "type": "Action",
-    "properties": {
-      "label": "New Row",
-      "id": "new_row",
-      "function": "_table.push({'name': 'Row', 'count': x})"
     }
   }
 ]
