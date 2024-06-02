@@ -11,7 +11,6 @@
   </div>
 </template>
 <script setup lang="ts">
-import { generateAPI } from '@/utils/openai'
 import { PropType, ref } from 'vue'
 import TextInputLabel from '@/components/elements/TextInputLabel.vue'
 import TextOutput from '@/components/elements/TextOutput.vue'
@@ -51,7 +50,7 @@ async function queryOracle() {
     }
   })
   const appStore = useAppStore()
-  const response = await generateAPI(prompt, 0.9, appStore.apiKey)
+  const response = await appStore.generateAPI(prompt, 0.9, appStore.apiKey)
   if (response.result) {
     console.log(response.result)
     if (response.result.includes('<answer>')) {

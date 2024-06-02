@@ -8,9 +8,19 @@
           <ChevronDoubleLeftIcon class="w-6 h-6 text-neutral-300" />
         </button>
       </div>
-      <div>
-        <TextInputLabel>OpenAI API Key</TextInputLabel>
-        <TextInput class="w-full" type="password" v-model="appStore.apiKey" />
+      <div class="space-y-2">
+        <div>
+          <TextInputLabel>OpenAI API Key</TextInputLabel>
+          <TextInput class="w-full" type="password" v-model="appStore.openAIAPIKey" />
+        </div>
+        <div>
+          <TextInputLabel>Gemini API Key</TextInputLabel>
+          <TextInput class="w-full" type="password" v-model="appStore.geminiAPIKey" />
+        </div>
+        <div>
+          <TextInputLabel>Backend</TextInputLabel>
+          <Dropdown v-model="appStore.backend" :options="['OpenAI', 'Gemini']" />
+        </div>
       </div>
     </div>
   </div>
@@ -20,6 +30,7 @@ import { ChevronDoubleLeftIcon } from '@heroicons/vue/16/solid'
 import TextInputLabel from '@/components/elements/TextInputLabel.vue'
 import TextInput from './elements/TextInput.vue'
 import { useAppStore } from '@/utils/appStore'
+import Dropdown from './elements/Dropdown.vue'
 
 const props = defineProps({
   open: {

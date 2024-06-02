@@ -2,7 +2,8 @@ import { defineStore } from 'pinia'
 import sampleApp from './sampleApp.json'
 import MAIN_PROMPT from './mainPrompt'
 // import { generateAPI } from './api'
-import { generateAPI } from './openai'
+import { generateAPI as generateOpenAIAPI } from './openai'
+import { generateAPI as generateGeminiAPI } from './gemini'
 import { ComponentType } from './components'
 import { useStorage } from '@vueuse/core'
 
@@ -28,9 +29,17 @@ export const useAppStore = defineStore(
       apps: useStorage('interformerApps', [] as App[]),
       states: useStorage('interformerAppStates', [] as any),
       editAppIndex: -1,
-      apiKey: useStorage('interformerAPIKey', ''),
+      openAIAPIKey: useStorage('interformerOpenAIAPIKey', ''),
+      geminiAPIKey: useStorage('interformerGeminiAIAPIKey', ''),
+      backend: useStorage('interformerBackend', 'OpenAI' as 'OpenAI' | 'Gemini'),
     }),
     getters: {
+      generateAPI(state) {
+        return state.backend === 'OpenAI' ? generateOpenAIAPI : generateGeminiAPI
+      },
+      apiKey(state) {
+        return state.backend === 'OpenAI' ? state.openAIAPIKey : state.geminiAPIKey
+      },
     },
     actions: {
       initAppState(app: ComponentType[]) {
@@ -66,7 +75,7 @@ export const useAppStore = defineStore(
         this.states = this.apps.map(app => this.initAppState(app.app))
       },
       async createApp(query: string) {
-        const result = await generateAPI(MAIN_PROMPT.replace('__DESCRIPTION__', query), 0.0, this.apiKey)
+        const result = await this.generateAPI(MAIN_PROMPT.replace('__DESCRIPTION__', query), 0.0, this.apiKey)
         console.log(result)
         if (result && result.result) {
           const rgx = /<title>(?<title>(.|\n)*?)<\/title>(.|\n)*?<json>(?<json>(.|\n)*?)<\/json>/
