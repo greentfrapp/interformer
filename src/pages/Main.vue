@@ -23,5 +23,5 @@ import { ref } from 'vue'
 const appStore = useAppStore()
 appStore.init()
 
-const openSettings = ref(false)
+const openSettings = ref(true)
 </script>

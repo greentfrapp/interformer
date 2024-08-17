@@ -1,7 +1,6 @@
 import { defineStore } from 'pinia'
 import sampleApp from './sampleApp.json'
 import MAIN_PROMPT from './mainPrompt'
-// import { generateAPI } from './api'
 import { generateAPI as generateOpenAIAPI } from './openai'
 import { generateAPI as generateGeminiAPI } from './gemini'
 import { ComponentType } from './components'
